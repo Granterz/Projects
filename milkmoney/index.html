@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Milk Money</title>
+    <script>
+        $(document).ready(function () {
+            $(".container").before("<p>jquery loaded</p>");
+
+            $("form").submit(function (e) {
+                e.preventDefault(); 
+                
+                let pupilName = $("#pupilsname").val().trim();
+                let pupilClass = $("#pupilsclass").val();
+
+                $("#pupilsname, #pupilsclass").css("border", "");
+
+                if (pupilName.length <= 0 && !pupilClass) {
+                    $("#pupilsname").attr("placeholder", "Please enter a pupil's name")
+                                     .css("border", "2px solid red");
+                    $("#pupilsclass").css("border", "2px solid red");
+                } 
+                else if (pupilName.length <= 0) {
+                    $("#pupilsname").attr("placeholder", "Please enter a pupil's name")
+                                     .css("border", "2px solid red");
+                } 
+                else if (!pupilClass) {
+                    $("#pupilsclass").css("border", "2px solid red");
+                } 
+                else {
+                
+                    $("#pupilsname").fadeOut(800, function(){
+                        $(this).val("").show();
+                    });
+                    $("#pupilsclass").fadeOut(800, function(){
+                        $(this).prop("selectedIndex", 0).show();
+                    });
+
+                    if (!$(".form-message").length) {
+                        $(".button-primary").after("<p class='form-message'>Form submitted...</p>");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Milk Money</h1>
+
+        <div class="row">
+            <div class="ten columns">
+                <p>Please fill in the form to request milk for your child</p>
+
+                <form>
+                    <div class="row">
+                        <div class="eight columns">
+                            <label for="pupilsname">Pupils name</label>
+                            <input class="u-full-width" type="text" id="pupilsname" />
+                        </div>
+                        <div class="four columns">
+                            <label for="pupilsclass">Pupils class</label>
+                            <select class="u-full-width" id="pupilsclass">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="p1">P1</option>
+                                <option value="p2">P2</option>
+                                <option value="p3">P3</option>
+                                <option value="p4">P4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input class="button-primary" type="submit" value="Submit" />
+                </form>
+            </div>
+            <div class="two columns">
+                <a class="button" href="#">Help</a>
+                <a class="button" href="#">Info</a>
+                <a class="button" href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
