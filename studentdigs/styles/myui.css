@@ -1,0 +1,90 @@
+.bkimg {
+    background-image: url(../duncan-kidd.jpg);
+    background-size: 100%;
+}
+
+a.changecol {
+   color: #000000 !important;
+}
+
+.join {
+    padding-top: 60%;
+    padding-bottom: 20%;
+}
+
+.under1 {
+    display: block;
+    padding-top: 20px;
+}
+
+.under2 {
+    display: block;
+    padding-top: 20px;
+}
+
+.uk-grid-match {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .uk-grid-match > div {
+    flex: 1 1 50%; 
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .uk-grid-match > div {
+    flex: 1 1 33.3333%; 
+    max-width: 33.3333%;
+  }
+}
+
+@media (max-width: 639px) {
+
+  .bkimg {
+    order: -1;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    position: relative;
+  }
+
+  .join {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+  }
+
+  .uk-heading-bullet {
+    text-align: center;
+    margin: 30px auto 10px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  form.uk-form-horizontal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 20px;
+  }
+
+  form.uk-form-horizontal .uk-input {
+    width: 80%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  form.uk-form-horizontal .uk-button {
+    width: 50%;
+  }
+
+  .uk-text-meta {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
